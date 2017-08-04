@@ -1,8 +1,8 @@
 # Vue-Things
 something about vuejs
 
-# 1、i18n.js
-## 多语言插件，有缓存机制，必须手动注册。
+# 1、i18n.js，多语言插件
+### 有缓存机制，必须手动注册。
     Vue.use(i18n, {
         isCache:true,//是否缓存语言包，默认为true
         getPack(lang, pack, callback) {
@@ -19,7 +19,7 @@ something about vuejs
             }
         }
     });
-## 使用方式：vue实例及组件实例中，上下文为this.$i18n。
+### 使用方式：vue实例及组件实例中，上下文为this.$i18n。
     this.$i18n.pack，为当前语言包，具有响应式特性。
     this.$i18n.current，为当前语言码，具有响应式特性。
     this.$i18n.toggle(language, callback?)，切换语言方法。callback为选填项，不传则会返回Promise。此callback与上面getPack中的callback有关系：此callback有值，getPack中的callback就有值，但不是同一个函数。调用此方法时，如果设置为要缓存结果，那么在内部，如果缓存池中没有此语言包，会调用上面的getPack方法获取并缓存起来，否则直接返回缓存的语言包；如果设置为不换存，会每次调用getPack方法。
